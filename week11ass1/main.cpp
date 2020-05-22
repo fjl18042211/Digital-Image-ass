@@ -29,7 +29,6 @@ int gammaCorrection(cv::Mat srcMat, cv::Mat & dstMat, float gamma)
 }
 int main()
 {
-
 	cv::Mat srcMat = imread("D:\\face.jpg", 0);
 	cv::Mat dstMat;
 

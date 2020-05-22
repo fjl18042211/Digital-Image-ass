@@ -29,19 +29,23 @@ int gammaCorrection(cv::Mat srcMat, cv::Mat & dstMat, float gamma)
 }
 int main()
 {
-
-	cv::Mat srcMat = imread("D:\\gtest.jpg", 0);
+	cv::Mat srcMat = imread("D:\\gtest.jpg");
 	cv::Mat dstMat;
 
 	if (srcMat.empty()) {
 		cout << "fail to read pic!" << endl;
 		return -1;
 	}
-
-	float gamma = 0.5;
-
-	gammaCorrection(srcMat, dstMat, gamma);
-
+	float gamma = 0.4;
+	vector<Mat> channels;
+	split(srcMat, channels);
+	Mat b = channels[0];
+	gammaCorrection(b, b, gamma);
+	Mat g = channels[1];
+	gammaCorrection(g, g, gamma);
+	Mat r = channels[2];
+	gammaCorrection(r, r, gamma);
+	merge(channels, dstMat);
 	imshow("src", srcMat);
 	imshow("dst", dstMat);
 	waitKey(0);
@@ -49,4 +53,5 @@ int main()
 	destroyAllWindows();
 
 	return 0;
+	
 }
