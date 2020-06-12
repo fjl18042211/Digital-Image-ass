@@ -151,7 +151,7 @@ int yoloV3()
 	//yolov3网络模型文件
 		String yolov3_model = "C:\\Users\\fjl\\Desktop\\vs\\yolov3.cfg";
 	//权重
-	String weights = "C:\\Users\\lestar\\fjl\\vs\\yolov3.weights";
+	String weights = "C:\\Users\\fjl\\Desktop\\vs\\yolov3.weights";
 
 	//将coco.names中的80类名称转换为vector形式
 	std::ifstream classNamesFile(classesFile.c_str());
